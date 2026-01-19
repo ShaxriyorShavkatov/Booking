@@ -160,7 +160,7 @@ app.delete('/api/bookings/:id', (req, res) => {
         return res.status(403).json({ error: 'Access denied' });
     }
     
-    db.db.run('DELETE FROM bookings WHERE id = ?', [id], function(err) {
+    db.getDb().run('DELETE FROM bookings WHERE id = ?', [id], function(err) {
         if (err) {
             res.status(500).json({ error: err.message });
         } else {

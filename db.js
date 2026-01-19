@@ -86,4 +86,8 @@ class Database {
     }
 }
 
+Database.prototype.getDb = function() {
+    return this.db;
+};
+
 module.exports = new Database();
