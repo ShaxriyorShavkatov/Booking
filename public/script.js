@@ -222,7 +222,7 @@ class BookingSystem {
                 <div class="no-slots">
                     <i class="fas fa-calendar-times"></i>
                     <p>No available slots for this day.</p>
-                    <p>All time slots (5:00 AM - 7:30 AM) are already booked.</p>
+                    <p>All time slots (4:30  - 6:30) are already booked.</p>
                     <p>Please select another day.</p>
                 </div>
             `;

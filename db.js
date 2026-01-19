@@ -64,8 +64,8 @@ class Database {
     }
 
     getAvailableSlots(day, callback) {
-        const startTime = 5 * 60;
-        const endTime = 7.5 * 60;
+        const startTime = 16.5 * 60;
+        const endTime = 18.5 * 60;
         const slotDuration = 15;
         
         this.getBookingsByDay(day, (err, bookings) => {
