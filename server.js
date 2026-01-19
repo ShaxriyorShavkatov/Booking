@@ -64,16 +64,9 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-// Admin route to view/delete bookings
+// ============== ADMIN ROUTES (MUST BE BEFORE CATCH-ALL) ==============
 app.get('/admin', (req, res) => {
-    const adminKey = process.env.ADMIN_KEY || 'admin123'; // Change this!
+    const adminKey = process.env.ADMIN_KEY || 'admin123';
     const { key } = req.query;
     
     if (key !== adminKey) {
@@ -128,7 +121,7 @@ app.get('/admin', (req, res) => {
             <script>
                 async function deleteBooking(id) {
                     if (confirm('Delete this booking?')) {
-                        const response = await fetch('/api/bookings/' + id, {
+                        const response = await fetch('/api/bookings/' + id + '?key=' + '${key}', {
                             method: 'DELETE',
                             headers: { 'Content-Type': 'application/json' }
                         });
@@ -148,11 +141,9 @@ app.get('/admin', (req, res) => {
     });
 });
 
-// Add DELETE endpoint
+// DELETE endpoint
 app.delete('/api/bookings/:id', (req, res) => {
     const { id } = req.params;
-    
-    // Simple auth check (in production, use proper auth)
     const adminKey = process.env.ADMIN_KEY || 'admin123';
     const { key } = req.query;
     
@@ -167,4 +158,14 @@ app.delete('/api/bookings/:id', (req, res) => {
             res.json({ success: true, deletedId: id });
         }
     });
+});
+// ============== END ADMIN ROUTES ==============
+
+// CATCH-ALL ROUTE (MUST BE LAST!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
