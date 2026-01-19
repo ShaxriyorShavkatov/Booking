@@ -35,7 +35,7 @@ header h1 {
 }
 
 header h1 i {
-    color: #3498db;
+    color: skyblue;
     margin-right: 15px;
 }
 
@@ -82,7 +82,7 @@ header h1 i {
 .step-number {
     width: 40px;
     height: 40px;
-    background: #3498db;
+    background: lightcoral;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -113,7 +113,7 @@ header h1 i {
 
 .form-group label i {
     margin-right: 10px;
-    color: #3498db;
+    color: lightcoral;
 }
 
 .form-group input {
@@ -127,7 +127,7 @@ header h1 i {
 
 .form-group input:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: lightcoral;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
@@ -158,7 +158,7 @@ header h1 i {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, lightcoral, #2980b9);
     color: white;
 }
 
@@ -197,19 +197,19 @@ header h1 i {
 }
 
 .type-option:hover {
-    border-color: #3498db;
+    border-color: lightcoral;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .type-option.selected {
-    border-color: #3498db;
+    border-color: lightcoral;
     background: #f8fafc;
 }
 
 .type-option i {
     font-size: 3rem;
-    color: #3498db;
+    color: lightcoral;
     margin-bottom: 15px;
 }
 
@@ -227,7 +227,7 @@ header h1 i {
 .type-badge {
     display: inline-block;
     background: #e3f2fd;
-    color: #1976d2;
+    color: lightcoral;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -263,14 +263,14 @@ header h1 i {
 }
 
 .day-option:hover:not(.disabled) {
-    border-color: #3498db;
+    border-color: lightcoral;
     transform: translateY(-2px);
 }
 
 .day-option.selected {
-    background: #3498db;
+    background: lightcoral;
     color: white;
-    border-color: #3498db;
+    border-color: lightcoral;
 }
 
 .day-option.disabled {
@@ -295,7 +295,7 @@ header h1 i {
 }
 
 .time-info i {
-    color: #3498db;
+    color: lightcoral;
     margin-right: 10px;
 }
 
@@ -318,14 +318,14 @@ header h1 i {
 }
 
 .time-slot:hover:not(.booked) {
-    border-color: #3498db;
+    border-color: lightcoral;
     transform: translateY(-2px);
 }
 
 .time-slot.selected {
-    background: #3498db;
+    background: lightcoral;
     color: white;
-    border-color: #3498db;
+    border-color: lightcoral;
 }
 
 .time-slot.booked {
@@ -355,7 +355,7 @@ header h1 i {
     background: #f8f9fa;
     padding: 25px;
     border-radius: 10px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid lightcoral;
 }
 
 .detail-card h3 {
@@ -366,7 +366,7 @@ header h1 i {
 
 .detail-card h3 i {
     margin-right: 10px;
-    color: #3498db;
+    color: lightcoral;
 }
 
 .detail-card p {
@@ -439,7 +439,7 @@ footer .note i {
 
 .loading i {
     font-size: 2.5rem;
-    color: #3498db;
+    color: lightcoral;
     margin-bottom: 15px;
 }
 
