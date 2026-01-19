@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-on-1 Meeting Booking System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calendar-alt"></i> 1-on-1 Meeting Scheduler</h1>
+            <p class="subtitle">Book your 15-minute session with the instructor</p>
+        </header>
+
+        <main>
+            <!-- Step 1: Name Input -->
+            <div id="step-name" class="step active">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2>Enter Your Information</h2>
+                </div>
+                <div class="step-content">
+                    <div class="form-group">
+                        <label for="studentName">
+                            <i class="fas fa-user"></i> Your Full Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="studentName" 
+                            placeholder="John Doe" 
+                            required
+                            autocomplete="off"
+                        >
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                    <button id="next-name" class="btn-primary">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Meeting Type Selection -->
+            <div id="step-type" class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2>Select Meeting Type</h2>
+                </div>
+                <div class="step-content">
+                    <div class="type-options">
+                        <button class="type-option" data-type="face-to-face">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Face-to-Face</h3>
+                            <p>In-person meeting</p>
+                            <div class="type-badge">Available 5:00 AM - 7:30 AM</div>
+                        </button>
+                        <button class="type-option" data-type="zoom">
+                            <i class="fas fa-video"></i>
+                            <h3>Zoom Meeting</h3>
+                            <p>Online video call</p>
+                            <div class="type-badge">Available 5:00 AM - 7:30 AM</div>
+                        </button>
+                    </div>
+                    <div class="step-actions">
+                        <button id="back-type" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Day Selection -->
+            <div id="step-day" class="step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2>Select Day</h2>
+                </div>
+                <div class="step-content">
+                    <p class="instruction">Available days: Monday, Wednesday, Friday</p>
+                    <div class="day-options">
+                        <button class="day-option" data-day="Monday">Monday</button>
+                        <button class="day-option disabled" data-day="Tuesday">Tuesday</button>
+                        <button class="day-option" data-day="Wednesday">Wednesday</button>
+                        <button class="day-option disabled" data-day="Thursday">Thursday</button>
+                        <button class="day-option" data-day="Friday">Friday</button>
+                        <button class="day-option disabled" data-day="Saturday">Saturday</button>
+                        <button class="day-option disabled" data-day="Sunday">Sunday</button>
+                    </div>
+                    <div class="step-actions">
+                        <button id="back-day" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Time Slot Selection -->
+            <div id="step-time" class="step">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h2>Select Time Slot</h2>
+                </div>
+                <div class="step-content">
+                    <div class="time-info">
+                        <p><i class="fas fa-info-circle"></i> Each slot is 15 minutes</p>
+                        <p id="selected-day-time"></p>
+                    </div>
+                    <div id="time-slots" class="time-slots">
+                        <!-- Time slots will be dynamically generated here -->
+                    </div>
+                    <div class="step-actions">
+                        <button id="back-time" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Confirmation -->
+            <div id="step-confirm" class="step">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h2>Confirm Booking</h2>
+                </div>
+                <div class="step-content">
+                    <div class="confirmation-details">
+                        <div class="detail-card">
+                            <h3><i class="fas fa-user"></i> Student Name</h3>
+                            <p id="confirm-name"></p>
+                        </div>
+                        <div class="detail-card">
+                            <h3><i class="fas fa-handshake"></i> Meeting Type</h3>
+                            <p id="confirm-type"></p>
+                        </div>
+                        <div class="detail-card">
+                            <h3><i class="fas fa-calendar-day"></i> Day</h3>
+                            <p id="confirm-day"></p>
+                        </div>
+                        <div class="detail-card">
+                            <h3><i class="fas fa-clock"></i> Time</h3>
+                            <p id="confirm-time"></p>
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button id="back-confirm" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button id="confirm-booking" class="btn-primary">
+                            <i class="fas fa-check-circle"></i> Confirm Booking
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="success-message" class="step">
+                <div class="step-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Booking Confirmed!</h2>
+                    <p>Your meeting has been successfully scheduled.</p>
+                    <div class="success-details">
+                        <p><strong>Student:</strong> <span id="success-name"></span></p>
+                        <p><strong>Type:</strong> <span id="success-type"></span></p>
+                        <p><strong>Day:</strong> <span id="success-day"></span></p>
+                        <p><strong>Time:</strong> <span id="success-time"></span></p>
+                    </div>
+                    <button id="new-booking" class="btn-primary">
+                        <i class="fas fa-plus-circle"></i> Book Another Session
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 Instructor Booking System. All rights reserved.</p>
+            <p class="note"><i class="fas fa-exclamation-circle"></i> Note: Time slots are shared between Face-to-Face and Zoom meetings</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
